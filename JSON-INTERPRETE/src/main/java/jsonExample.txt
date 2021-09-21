@@ -1,0 +1,14 @@
+{
+  "student":
+  {
+    "id" : "1121968569",
+    "prename" : "Aton",
+    "surname" : "Override",
+    "address" :
+    {
+      "street" : "Alfredo",
+      "postcode" : "11011"
+    },
+    "email"   : "atoncode@icloud.com"
+  }
+}
