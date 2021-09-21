@@ -5,12 +5,11 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-public class JSONParserTest
-{
+public class JSONParserTest {
 
-    public static void main(String[] args) throws Exception
-    {
-        String content = new Scanner(new File("jsonExample.txt")).useDelimiter("\\Z").next();
+    public static void main(String[] args) throws Exception {
+
+        String content = new Scanner(new File("jsonExample.json")).useDelimiter("\\Z").next();
         System.out.println( "JSON File:\n" + content + "\n\n");
 
         ANTLRInputStream input = new ANTLRInputStream( content );
