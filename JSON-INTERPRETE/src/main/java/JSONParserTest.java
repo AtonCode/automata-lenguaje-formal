@@ -1,5 +1,7 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -7,25 +9,31 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 public class JSONParserTest {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
 
-        String content = new Scanner(new File("jsonExample.json")).useDelimiter("\\Z").next();
-        System.out.println( "JSON File:\n" + content + "\n\n");
+        try{
 
-        ANTLRInputStream input = new ANTLRInputStream( content );
+            String content = new Scanner(new File("jsonExample.json")).useDelimiter("\\Z").next();
+            System.out.println( "JSON File:\n" + content + "\n\n");
 
-        JSONLexer lexer = new JSONLexer(input);
+            ANTLRInputStream input = new ANTLRInputStream( content );
 
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
+            JSONLexer lexer = new JSONLexer(input);
 
-        JSONParser parser = new JSONParser(tokens);
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-        ParseTree tree = parser.json();
+            JSONParser parser = new JSONParser(tokens);
 
-        AST ast = new AST( tree );
+            ParseTree tree = parser.json();
 
-        System.out.println( "ParseTree:\n" + tree.toStringTree( parser ) + "\n");
-        System.out.println( "Improved ParseTree:\n" + ast.toString() );
+            AST ast = new AST( tree );
+
+            System.out.println( "ParseTree:\n" + tree.toStringTree( parser ) + "\n");
+            System.out.println( "Improved ParseTree:\n" + ast.toString() );
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
 
     }
