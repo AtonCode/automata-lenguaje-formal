@@ -22,7 +22,12 @@ public class JSONParserTest {
 
         ParseTree tree = parser.json();
 
+        AST ast = new AST( tree );
+
         System.out.println( "ParseTree:\n" + tree.toStringTree( parser ) + "\n");
+        System.out.println( "Improved ParseTree:\n" + ast.toString() );
+
+
     }
 
 }
