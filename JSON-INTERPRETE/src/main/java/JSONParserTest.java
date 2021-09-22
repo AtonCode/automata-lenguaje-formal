@@ -9,7 +9,6 @@ import org.antlr.v4.runtime.tree.ParseTree;
 public class JSONParserTest {
 
     public static void main(String[] args){
-
         try{
 
             String content = new Scanner(new File("C:\\Users\\Pablo Bright\\IdeaProjects\\automata-lenguaje-formal\\JSON-INTERPRETE\\src\\main\\java\\jsonExample.json")).useDelimiter("\\Z").next();
